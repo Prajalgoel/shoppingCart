@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev" : "vite",
+    "build" : "npx tailwindcss -i ./input.css -o ./output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "vite": "^6.0.11"
+  }
+}

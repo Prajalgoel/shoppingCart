@@ -1,0 +1,22 @@
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track (background of scrollbar) */
+  ::-webkit-scrollbar-track {
+    background: #2d3748; /* Dark slate gray */
+    border-radius: 10px;
+  }
+  
+  /* Handle (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background: #4a5568; /* Darker gray */
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #718096; /* Lighter gray */
+  }
+  

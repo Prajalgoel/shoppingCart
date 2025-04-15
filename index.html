@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black flex justify-center items-center min-h-screen">
+  <div class="container bg-slate-700 text-white w-fit flex flex-col items-center p-3 rounded-md">
+    <div class="heading font-bold text-3xl">Products</div>
+    <div class="products flex flex-col mt-2 gap-2">
+      <div class=" product1 bg-slate-800 p-3 rounded-md text-lg font-semibold flex gap-9 items-center">
+        <span> Product <span class="product">1</span>- $<span class="price">29.99</span></span>
+        <button class="addToCart  bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100 w-[115px]">Add To Cart</button>
+        <button class="remove bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100 w-[115px] hidden">Remove</button>
+      </div>
+
+      <div class=" product2 bg-slate-800 p-3 rounded-md text-lg font-semibold flex gap-9 items-center">
+        <span> Product <span class="product">2</span>- $<span class="price">19.99</span></span>
+        <button class="addToCart  bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100 w-[115px]">Add To Cart</button>
+        <button class="remove bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100 w-[115px] hidden">Remove</button>
+      </div>
+
+      <div class=" product3 bg-slate-800 p-3 rounded-md text-lg font-semibold flex gap-9 items-center">
+        <span> Product <span class="product">3</span>- $<span class="price">49.99</span></span>
+        <button class="addToCart bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100 w-[115px]">Add To Cart</button>
+        <button class="remove bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100 w-[115px] hidden">Remove</button>
+      </div>
+      
+    </div> 
+
+    <div class="cart mt-2 self-start w-full">
+      <div class="font-bold text-2xl mb-2">Shopping Cart</div>
+      <div class="items bg-slate-900 py-3 rounded-md flex flex-col gap-4 max-h-[30vh] overflow-y-auto ">
+        <div class="NoItems font-bold text-xl mb-2  pl-2 ">No items to display</div>
+      </div>
+    </div>
+
+    <div class="counter flex flex-col self-end text-lg font-semibold mt-3">
+      <div class="text-lg font-semibold">Total: $ <span class="bill">0</span></div>
+      <button class="checkout bg-blue-600 rounded-md p-2 hover:bg-blue-400 duration-100">Checkout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
