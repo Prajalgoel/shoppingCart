@@ -21,11 +21,14 @@ document.addEventListener('DOMContentLoaded' , () => {
 
     function renderitem(productNo, price, cartButton, removeBtn){
         let div = document.createElement('div')
-        div.setAttribute('class', 'item text-lg font-semibold pl-2 mb-1 ')
-        div.innerHTML = `Product ${productNo}- $${price} x   
+        div.setAttribute('class', 'item text-lg font-semibold px-2 mb-1 flex items-center')
+        div.innerHTML = `${productNo}- $${price} x   
           <span class="count mr-5">1</span>
-          <button class="plus bg-blue-600 rounded-md px-2 py-1 mr-2 hover:bg-blue-400 duration-100">+</button>
-          <button class="minus bg-blue-600 rounded-md px-3 py-1 hover:bg-blue-400 duration-100">-</button>`
+          <div class="flex ml-auto">
+            <button class="plus bg-blue-600 rounded-md px-2 py-1 mr-2 hover:bg-blue-400 duration-100">+</button>
+            <button class="minus bg-blue-600 rounded-md px-3 py-1 hover:bg-blue-400 duration-100 ">-</button>
+          </div>
+          `
         
         items.appendChild(div)
 
@@ -34,6 +37,11 @@ document.addEventListener('DOMContentLoaded' , () => {
         
         let count = 1
         plus.addEventListener('click', ()=> {
+            plus.disabled = true
+            setTimeout(() => {
+                plus.disabled = false
+            }, 200);
+
             count++
             div.querySelector('.count').innerHTML = count 
             finalBill += price 
@@ -42,30 +50,42 @@ document.addEventListener('DOMContentLoaded' , () => {
         })
         
         minus.addEventListener('click', ()=> {
+            minus.disabled = true
+            setTimeout(() => {
+                minus.disabled = false
+            }, 200);
+
             if (count == 1) {
                 div.remove()
                 cartButton.style.display = "block"
                 removeBtn.classList.add('hidden')
+                removeBtn.addEventListener('click', removebtnHandler)
             }
             else{
                 count--
                 div.querySelector('.count').innerHTML = count
             }
 
-            finalBill -= price 
+            finalBill = Math.max(0, finalBill-price)
             updateBill() 
 
         })
 
-        removeBtn.addEventListener('click', (e) => {
+        function removebtnHandler(){
+            removeBtn.disabled = true
+            setTimeout(() => {
+                removeBtn.disabled = false
+            }, 200);
+
+            removeBtn.removeEventListener('click', removebtnHandler)
             div.remove()
             finalBill -= price * count
             updateBill()
             cartButton.style.display = "block"
             removeBtn.classList.add('hidden')
-        })
+        }
 
-
+        removeBtn.addEventListener('click', removebtnHandler)
 
         finalBill += price 
         updateBill() 
@@ -94,8 +114,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         items.querySelectorAll('.item').forEach((item) => {
             item.remove()
         })
-        addToCart.forEach((cart) => {
-            cart.innerHTML = "Add To Cart"
+        addToCart.forEach((cart) => {   
             cart.style.display = 'block'
         })
 
